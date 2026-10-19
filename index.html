@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A rule-based software testing support demo for a library management system.">
+  <title>Library TestLab | Software Testing Support</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-icon" aria-hidden="true">📚</div>
+      <div><strong>Library TestLab</strong><span>QA SUPPORT SYSTEM</span></div>
+    </div>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a class="nav-link active" href="#overview"><span>▦</span> Overview</a>
+      <a class="nav-link" href="#requirements"><span>☷</span> Requirements</a>
+      <a class="nav-link" href="#test-cases"><span>✓</span> Test Cases</a>
+      <a class="nav-link" href="#execution"><span>▶</span> Test Execution</a>
+      <a class="nav-link" href="#reports"><span>▤</span> Reports</a>
+    </nav>
+    <div class="sidebar-note">
+      <div class="note-icon">i</div>
+      <p><strong>Demo mode</strong><br>Execution is simulated in this browser. No live library application is connected.</p>
+    </div>
+    <div class="sidebar-footer">Mini Project · HTML / CSS / JS</div>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">SOFTWARE QUALITY ASSURANCE</p>
+        <h1>Library Management Testing</h1>
+        <p class="subtitle">Generate test cases, record outcomes, and review possible defects.</p>
+      </div>
+      <div class="topbar-right">
+        <span class="mode-badge"><span class="pulse-dot"></span> Rule-based simulation</span>
+        <div class="profile-avatar" aria-label="Demo user">QA</div>
+      </div>
+    </header>
+
+    <section id="overview" class="section-block">
+      <div class="section-heading">
+        <div><p class="eyebrow">PROJECT OVERVIEW</p><h2>Testing dashboard</h2></div>
+        <span id="last-updated" class="muted-label">Sample data loaded</span>
+      </div>
+      <div class="stats-grid">
+        <article class="stat-card">
+          <div class="stat-top"><span>Total test cases</span><span class="stat-icon icon-blue">▤</span></div>
+          <strong id="total-count" class="stat-number">0</strong><span class="stat-foot">Generated scenarios</span>
+        </article>
+        <article class="stat-card">
+          <div class="stat-top"><span>Passed tests</span><span class="stat-icon icon-green">✓</span></div>
+          <strong id="passed-count" class="stat-number">0</strong><span class="stat-foot">Matched expected results</span>
+        </article>
+        <article class="stat-card">
+          <div class="stat-top"><span>Failed tests</span><span class="stat-icon icon-red">!</span></div>
+          <strong id="failed-count" class="stat-number">0</strong><span class="stat-foot">Possible defects found</span>
+        </article>
+        <article class="stat-card">
+          <div class="stat-top"><span>Pending tests</span><span class="stat-icon icon-amber">◷</span></div>
+          <strong id="pending-count" class="stat-number">0</strong><span class="stat-foot">Awaiting execution</span>
+        </article>
+      </div>
+
+      <div class="overview-grid">
+        <article class="panel pass-panel">
+          <div class="panel-title-row"><div><p class="eyebrow">EXECUTION PROGRESS</p><h3>Pass percentage</h3></div><span id="pass-percent" class="big-percent">0%</span></div>
+          <div class="progress-track"><div id="pass-progress" class="progress-fill"></div></div>
+          <div class="progress-legend"><span><i class="legend-dot green"></i> Passed</span><span><i class="legend-dot red"></i> Failed</span><span><i class="legend-dot grey"></i> Pending</span></div>
+          <p id="progress-note" class="small-muted">Run tests to calculate the pass percentage.</p>
+        </article>
+        <article class="panel defect-panel">
+          <div class="panel-title-row"><div><p class="eyebrow">DEFECT TRACKER</p><h3>Identified defects</h3></div><span class="stat-icon icon-red">⌁</span></div>
+          <strong id="defect-count" class="defect-number">0</strong>
+          <p class="small-muted">Failed executions include a possible defect description for investigation.</p>
+          <a href="#test-cases" class="text-link">Review failed tests →</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="problem-card">
+      <div class="problem-symbol" aria-hidden="true">✦</div>
+      <div><p class="eyebrow">PROBLEM STATEMENT</p>
+        <p>Manual software testing of a library management system can be time-consuming and error-prone. This project provides a simple AI-assisted testing support system that converts functional requirements into structured test cases, records execution results, identifies failed tests, and generates a testing report.</p>
+      </div>
+    </section>
+
+    <section id="requirements" class="section-block">
+      <div class="section-heading">
+        <div><p class="eyebrow">WHAT SHOULD THE SYSTEM DO?</p><h2>Functional requirements</h2><p class="section-description">The sample test cases are linked to these requirements.</p></div>
+      </div>
+      <div id="requirements-list" class="requirements-grid"></div>
+    </section>
+
+    <section id="test-cases" class="section-block">
+      <div class="section-heading responsive-heading">
+        <div><p class="eyebrow">TEST DESIGN</p><h2>Generated test cases</h2><p class="section-description">Rule-based generation from the sample requirement set.</p></div>
+        <button id="generate-tests" class="button button-primary" type="button">✦ Generate Test Cases</button>
+      </div>
+      <div class="table-toolbar">
+        <label class="search-box"><span aria-hidden="true">⌕</span><input id="test-search" type="search" placeholder="Search ID, requirement, or scenario..." aria-label="Search test cases"></label>
+        <label class="filter-label">Status
+          <select id="status-filter"><option value="all">All statuses</option><option value="Pending">Pending</option><option value="Pass">Pass</option><option value="Fail">Fail</option></select>
+        </label>
+      </div>
+      <div class="table-container">
+        <table>
+          <thead><tr><th>Test ID</th><th>Requirement</th><th>Test scenario</th><th>Input data</th><th>Expected result</th><th>Actual result</th><th>Status</th></tr></thead>
+          <tbody id="test-case-rows"></tbody>
+        </table>
+      </div>
+      <p id="table-empty" class="empty-state hidden">No test cases match your search and filter.</p>
+    </section>
+
+    <section id="execution" class="section-block">
+      <div class="section-heading">
+        <div><p class="eyebrow">MANUAL RESULT ENTRY</p><h2>Test execution</h2><p class="section-description">Choose a test, enter what you observed, and compare it with the expected result.</p></div>
+      </div>
+      <div class="execution-layout">
+        <form id="execution-form" class="panel execution-form" novalidate>
+          <div class="form-header"><span class="form-step">01</span><div><h3>Record execution</h3><p>All fields marked * are required.</p></div></div>
+          <label for="execution-test-id">Test case <span>*</span></label>
+          <select id="execution-test-id" required></select>
+          <div id="selected-test-preview" class="selected-preview">Select a test case to view its expected result.</div>
+          <label for="actual-result">Actual result observed <span>*</span></label>
+          <textarea id="actual-result" rows="4" maxlength="1000" required placeholder="Describe what happened when you tested the application..."></textarea>
+          <p class="field-hint">Tip: To pass, describe the same outcome as the expected result. Matching is case-insensitive and ignores basic punctuation.</p>
+          <p id="execution-error" class="form-error" role="alert"></p>
+          <button class="button button-primary full-width" type="submit">▶ Execute Test</button>
+          <p class="simulation-warning">Demo only: this compares your entered observation with expected text. It does not operate a real library application.</p>
+        </form>
+        <article class="panel execution-help">
+          <div class="help-illustration" aria-hidden="true">🧪</div>
+          <p class="eyebrow">HOW IT WORKS</p>
+          <h3>Compare actual vs expected</h3>
+          <ol>
+            <li><span>1</span> Select a generated test case.</li>
+            <li><span>2</span> Enter the observed result from your test.</li>
+            <li><span>3</span> Select <strong>Execute Test</strong> to record Pass or Fail.</li>
+            <li><span>4</span> Failed comparisons get a possible defect note.</li>
+          </ol>
+          <div class="result-examples"><div><span class="status-badge pass">PASS</span><p>Actual result matches the expected result.</p></div><div><span class="status-badge fail">FAIL</span><p>Results differ; investigate the possible defect.</p></div></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="reports" class="section-block">
+      <div class="section-heading responsive-heading">
+        <div><p class="eyebrow">DOCUMENTATION</p><h2>Testing report</h2><p class="section-description">Create a report from the current requirements and execution results.</p></div>
+        <div class="report-actions"><button id="generate-report" class="button button-secondary" type="button">Generate Testing Report</button><button id="download-report" class="button button-primary" type="button" disabled>↓ Download Report (.txt)</button></div>
+      </div>
+      <p id="report-message" class="report-message" aria-live="polite">Generate a report to preview the current testing summary.</p>
+      <pre id="report-preview" class="report-preview hidden"></pre>
+    </section>
+
+    <footer class="page-footer"><span>📚 Library TestLab</span><span>Rule-based testing support demo · No live application connected</span></footer>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
